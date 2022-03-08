@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Url Shortener</title>
+</head>
+<body>
+    <div></div>
+    <div>
+        <form action="{% url 'scissors:create-url' %}" method="post">{%csrf_token%}
+            {{form.as_p}}
+            <input type="submit", value="Start">
+        </form>
+    </div>
+    {% block list %}
+    {% endblock %}
+    
+</body>
+</html>

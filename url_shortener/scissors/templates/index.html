@@ -1,15 +1,18 @@
+{% extends 'base.html' %}
+{% block list %}
 <div>
     <table>
         {% for url in object_list %}
-            <tr>
-                <td>
-                    <a href="">copy</a>
-                    <a href="">edit</a>
-                </td>
-                <td>{{url.path}}</td>
-                <td>{{url.original}}</td>
-            </tr>
+        <tr>
+            <td>
+                <a href="">copy</a>
+                <a href="">edit</a>
+            </td>
+            <td>{{url.path}}</td>
+            <td>{{url.original}}</td>
+        </tr>
         {% endfor %}
     </table>
 
 </div>
+{% endblock %}
