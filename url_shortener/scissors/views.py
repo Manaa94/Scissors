@@ -1,4 +1,5 @@
-from django.views.generic import list, edit
+from django.views.generic import list, edit, base
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from .models import Url
 from .forms import UrlForm
@@ -21,3 +22,9 @@ class UrlCreateView(edit.CreateView):
 
     def get_success_url(self):
         return reverse('scissors:list-url')
+
+
+class UrlRedirectView(base.RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        url = get_object_or_404(Url, path=kwargs['path'])
+        return url.original
