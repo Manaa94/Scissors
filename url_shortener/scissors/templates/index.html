@@ -16,8 +16,10 @@
             {%csrf_token%}
             {{form.as_p}}
             {% if edit %}
+            <!-- editing url -->
             <input style="width: 110px; margin-left: 15px;" type="submit" , value="Edit">
             {% else %}
+            <!-- creating url -->
             <input style="width: 110px; margin-left: 15px;" type="submit" , value="Start">
             {% endif %}
         </form>
@@ -30,8 +32,10 @@
             {% for url in object_list %}
             <tr>
                 <td>
+                    <!-- copy icon -->
                     <a href="{% url 'scissors:copy-url' url.pk %}"><img src="../static/icons/copy.png"
                             style="margin-right:5px; cursor: pointer; width: 40px;" title="copy path"></a>
+                    <!-- edit icon -->
                     <a href="{% url 'scissors:edit-url' url.pk %}"><img src="../static/icons/edit.png"
                             style="cursor:pointer; width: 40px;" title="edit"></a>
                 </td>
