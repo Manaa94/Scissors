@@ -1,4 +1,4 @@
-from django.views.generic import list, edit, base
+from django.views.generic import list, edit, base, UpdateView
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.shortcuts import get_object_or_404
@@ -11,6 +11,7 @@ import pyperclip
 class UrlListView(list.ListView):
     template_name = 'index.html'
     queryset = Url.objects.all()
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -37,3 +38,19 @@ class UrlCopyPathView(View):
         path = get_object_or_404(Url, pk=pk).path
         pyperclip.copy(f'/s/{path}')
         return HttpResponseRedirect(reverse('scissors:list-url'))
+
+
+class UrlEditPathView(UpdateView):
+    form_class = UrlForm
+    template_name = 'index.html'
+    queryset = Url.objects.all()
+    paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object_list'] = Url.objects.order_by('-updated_at')[:5]
+        context['edit'] = 'edit'
+        return context
+
+    def get_success_url(self):
+        return reverse('scissors:list-url')
