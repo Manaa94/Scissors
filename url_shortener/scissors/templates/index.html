@@ -16,11 +16,12 @@
         {% for url in object_list %}
         <tr>
             <td>
-                <a href=""><img src="../static/icons/copy.png" style="margin-right:5px; cursor: pointer; width: 40px;"
+                
+                <a href="{% url 'scissors:copy-url' url.pk %}"><img src="../static/icons/copy.png" style="margin-right:5px; cursor: pointer; width: 40px;"
                         title="copy path"></a>
                 <a href=""><img src="../static/icons/edit.png" style="cursor:pointer; width: 40px;" title="edit"></a>
             </td>
-            <td>{{url.path}}</td>
+            <td>/s/{{url.path}}</td>
             <td>{{url.original}}</td>
         </tr>
         {% endfor %}
