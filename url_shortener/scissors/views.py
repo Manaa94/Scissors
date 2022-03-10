@@ -1,4 +1,5 @@
 from django.views.generic import list, edit, base, UpdateView
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.shortcuts import get_object_or_404
@@ -53,3 +54,9 @@ class UrlEditPathView(UpdateView):
 
     def get_success_url(self):
         return reverse('scissors:list-url')
+
+
+class RedirectPage(View):
+    def get(self, request):
+        return render(request, 'about_us.html')
+

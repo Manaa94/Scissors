@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UrlListView, UrlCreateView, UrlRedirectView, UrlCopyPathView, UrlEditPathView
+from .views import UrlListView, UrlCreateView, UrlRedirectView, UrlCopyPathView, UrlEditPathView, RedirectPage
 
 app_name = 'scissors'
 urlpatterns = [
@@ -8,5 +8,7 @@ urlpatterns = [
     path('s/<str:path>/', UrlRedirectView.as_view(), name='redirect-url'),
     path('copy/<int:pk>/', UrlCopyPathView.as_view(), name='copy-url'),
     path('<int:pk>/', UrlEditPathView.as_view(), name='edit-url'),
+    path('about_us/', RedirectPage.as_view(), name='redirect-page'),
+
 
 ]
