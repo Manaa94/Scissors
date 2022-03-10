@@ -1,5 +1,7 @@
 body {
     margin:0;
+    background-color: rgb(232, 230, 230);
+    
 }
 
 #menu ul {
@@ -114,6 +116,16 @@ input[type=submit]:hover{
     color: white;
     width: 70px;
     margin-left: 10px;
+}
+
+.about-us {
+    width: 60%;
+    height: 550px;
+    background-color: rgb(121, 143, 240);
+    margin: auto;
+    margin-top: 40px;
+    padding: 40px;
+    box-sizing: border-box;
 }
 
 

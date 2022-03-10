@@ -48,6 +48,25 @@
     </div>
     {% endblock %}
 
+    <!-- next & previous button -->
+    {% block pagination %}
+    {% if not edit %}
+    <div class="button">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="previous">&laquo; Previous</a>
+        {% endif %}
+
+        <span>
+            page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="next">Next &raquo;</a>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% endblock %}
+
 </body>
 
 </html>

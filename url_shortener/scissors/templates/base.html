@@ -10,8 +10,8 @@
 <body>
     <div id='menu'>
         <ul>
-            <li class="active"><a href="#about">about us</a></li>
-            <li><a href="#contact">contact</a></li>
+            <li><a href="{% url 'scissors:list-url' %}">Home</a></li>
+            <li><a href="{% url 'scissors:redirect-page' %}">about us</a></li>
         </ul>
     </div>
 
@@ -29,23 +29,13 @@
             {% block edit %}
             {% endblock %}
         </div>
+        <div>
+            {% block about %}
+            {% endblock %}
+        </div>
     </div>
-    <!-- next & previous button -->
-    {% if not edit %}
-    <div class="button">
-        {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}" class="previous">&laquo; Previous</a>
-        {% endif %}
-
-        <span>
-            page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-        </span>
-
-        {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}" class="next">Next &raquo;</a>
-        {% endif %}
-    </div>
-    {% endif %}
+    {% block pagination %}
+    {% endblock %}
 </body>
 
 </html>
