@@ -19,17 +19,17 @@ class test_url_list_view(TestCase):
     def test_create_view(self):
         data = {'original': 'https://www.w3schools.com/', 'path': 'w3schools'}
         response = self.client.post(reverse('scissors:create-url'), data=data)
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, reverse('scissors:list-url'))
 
     def test_redirect_view(self):
         response = self.client.get(
             reverse('scissors:redirect-url', args=['google']))
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_copy_path_view(self):
         response = self.client.get(reverse('scissors:copy-url', args=[1]))
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_edit_path_view(self):
         url = Url.objects.get(path='google')
