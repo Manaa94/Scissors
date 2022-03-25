@@ -12,7 +12,7 @@ class test_url_list_view(TestCase):
 
     def test_list_view(self):
         response = self.client.get(reverse('scissors:list-url'))
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
         self.assertTrue('form' in response.context)
 
@@ -42,5 +42,5 @@ class test_url_list_view(TestCase):
 
     def test_redirect_page(self):
         response = self.client.get(reverse('scissors:redirect-page'))
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'about_us.html')
