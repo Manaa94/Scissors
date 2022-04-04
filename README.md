@@ -1,24 +1,39 @@
 # Scissors
-This is an application for shortening links using django.
-# Requirements
-Tools and packages required to successfully install this project:
-* Python 3 and up
+We are here to shorten your links.
+# Technologies used
+* Python3
+* Django4
+* Html5
+* Css
 # Installation
-$ git clone project-url
 
-$ python -m venv venv
+**1. clone the project**
+  ```
+  git clone git@github.com:Manaa94/Scissors.git
+  ```
+**2. move '.env-sample' to the path url_shortener/url_shortener, rename it to '.env', and provide required variables.**
+  ```
+  mv .env-sample url_shortener/url_shortener/.env  
+  ```
+  
+**3. create a python virtual environment**
+  ```
+    python3 -m venv venv
+  ```
+**4. activate your venv**
+on linux and mac
+  ```
+    source venv/bin/activate
+  ```
+on windows
+  ```
+    venv/Scripts/activate
+  ```
+**5. install requirements**
+  ```
+    pip install -r requirements.txt
+  ```
+**6. migrate**
 
-**For Linux and OS X:**
-
-$ source venv/bin/activate
-
-**For Windows:**
-
-$ .\venv\Scripts\activate.bat
-
-
-**To install the required packages:**
-
-
-$ pip install -r requirements.txt
+**7. run the project**
 
